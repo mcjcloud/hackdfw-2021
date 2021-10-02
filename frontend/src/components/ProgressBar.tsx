@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   AppBar,
   Avatar,
@@ -43,9 +43,18 @@ const useStyles = makeStyles({
     position: "relative",
     display: "flex",
   },
+  stepWrapper: {
+    flex: 1,
+    display: "flex",
+    alignItems: "center",
+  },
+  arrowIconWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
 });
-
-const stages = ["Sign Up", "Your Profile", "Matches", "Join", "Engage"];
 
 interface Props {
   stage: "Sign Up" | "Your Profile" | "Matches" | "Join" | "Engage";
@@ -53,32 +62,82 @@ interface Props {
 const ProgressBar = (props: Props): JSX.Element => {
   const classes = useStyles();
   const stage = props.stage;
+  const location = useLocation();
   return (
     <div className={classes.wrapper}>
       <Grid container spacing={2}>
-        {stages.map((s, i) => (
-          <div
+        <div className={classes.stepWrapper}>
+          <Avatar
             style={{
-              flex: 1,
-              display: "flex",
-              alignItems: "center",
+              backgroundColor: location.pathname.includes("signup")
+                ? "blue"
+                : "black",
             }}
+            className={classes.avatar}
           >
-            {/* <Grid
-              item
-              xs={2}
-              sm={2}
-              md={2}
-              key={i}
-              className={classes.arrowWrapper}
-            > */}
-            <Avatar className={classes.avatar}>{stages[i]}</Avatar>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flex: 1 }}>
-              <ArrowRightAltIcon className={classes.arrow} />
-            </div>
-            {/* </Grid> */}
+            Sign Up
+          </Avatar>
+          <div className={classes.arrowIconWrapper}>
+            <ArrowRightAltIcon className={classes.arrow} />
           </div>
-        ))}
+        </div>
+        <div className={classes.stepWrapper}>
+          <Avatar
+            style={{
+              backgroundColor: location.pathname.includes("details")
+                ? "blue"
+                : "black",
+            }}
+            className={classes.avatar}
+          >
+            My Profile
+          </Avatar>
+          <div className={classes.arrowIconWrapper}>
+            <ArrowRightAltIcon className={classes.arrow} />
+          </div>
+        </div>
+        <div className={classes.stepWrapper}>
+          <Avatar
+            style={{
+              backgroundColor: location.pathname.includes("signup")
+                ? "blue"
+                : "black",
+            }}
+            className={classes.avatar}
+          >
+            Sign Up
+          </Avatar>
+          <div className={classes.arrowIconWrapper}>
+            <ArrowRightAltIcon className={classes.arrow} />
+          </div>
+        </div>
+        <div className={classes.stepWrapper}>
+          <Avatar
+            style={{
+              backgroundColor: location.pathname.includes("signup")
+                ? "blue"
+                : "black",
+            }}
+            className={classes.avatar}
+          >
+            Sign Up
+          </Avatar>
+          <div className={classes.arrowIconWrapper}>
+            <ArrowRightAltIcon className={classes.arrow} />
+          </div>
+        </div>
+        <div className={classes.stepWrapper}>
+          <Avatar
+            style={{
+              backgroundColor: location.pathname.includes("signup")
+                ? "blue"
+                : "black",
+            }}
+            className={classes.avatar}
+          >
+            Sign Up
+          </Avatar>
+        </div>
       </Grid>
     </div>
   );
