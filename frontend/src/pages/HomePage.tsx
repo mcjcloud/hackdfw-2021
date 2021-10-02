@@ -41,11 +41,14 @@ const HomePage = (): JSX.Element => {
         },
       ],
       channels: [],
+      avatar: "/src/assets/home.svg",
     },
     {
       groupName: "Subtract ADD",
       groupDescription: "Come hang out with us, we are a bit around",
       members: ["123", "456"],
+      avatar: "/src/assets/home.svg",
+
       guid: "123",
       schedule: [
         {

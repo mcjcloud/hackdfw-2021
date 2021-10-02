@@ -1,4 +1,5 @@
 export interface Group {
+  avatar: string;
   groupName: string;
   groupDescription: string;
   members: string[];

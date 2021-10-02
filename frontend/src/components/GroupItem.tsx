@@ -45,6 +45,19 @@ const useStyles = makeStyles({
     width: "30%",
     textAlign: "right",
   },
+  buttonGroup: {
+    padding: "10px",
+    display: "flex",
+    justifyContent: "space-around",
+  },
+  groupAvatar: {
+    width: "150px",
+    height: "150px",
+    borderRadius: "45px",
+    verticalAlign: "middle",
+    display: "flex",
+
+}
 });
 
 const GetMemberById = (memberId: string): Member => {
@@ -94,6 +107,7 @@ const GroupItem = (props: Props): JSX.Element => {
   return (
     <div className={classes.wrapper}>
       <>
+        <Avatar src={group.avatar} className={classes.groupAvatar}/>
         <List className={classes.groupInfoWrapper}>
           <ListItemText
             primary={
@@ -113,18 +127,28 @@ const GroupItem = (props: Props): JSX.Element => {
             }
           />
         </List>
-        <List>
-          {members.map((member) => {
-            return (
-              <ListItem key={member.guid}>
-                <ListItemAvatar>
-                  <Avatar src={member.picture || "/static/unknown-image.png"} />
-                </ListItemAvatar>
-                <ListItemText primary={member.name} />
-              </ListItem>
-            );
-          })}
-        </List>
+        <div className={classes.scheduleWrapper}>
+          <List>
+            {members.map((member) => {
+              return (
+                <ListItem key={member.guid}>
+                  <ListItemAvatar>
+                    <Avatar
+                      src={member.picture || "/static/unknown-image.png"}
+                    />
+                  </ListItemAvatar>
+                  <ListItemText primary={member.name} />
+                </ListItem>
+              );
+            })}
+          </List>
+          <div className={classes.buttonGroup}>
+            <Button variant="contained">Preview</Button>
+            <Button variant="contained" color="primary">
+              Join
+            </Button>
+          </div>
+        </div>
         <div className={classes.scheduleWrapper}>
           <List>
             {group.schedule.map((event) => {
