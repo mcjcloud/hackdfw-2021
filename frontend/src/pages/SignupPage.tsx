@@ -5,6 +5,7 @@ import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOut
 import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined';
 import { Checkbox } from "@material-ui/core";
 import { Link } from 'react-router-dom';
+import ProgressBar from "../components/ProgressBar";
 
 
 const Signup = (): JSX.Element => {
@@ -12,6 +13,8 @@ const Signup = (): JSX.Element => {
     const headerStyle = { margin: "5" }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     return (
+        <>
+        <ProgressBar stage="Sign Up"/>
         <Grid>
             <Paper elevation={20} style={paperStyle}>
                 <Grid container justify="center">
@@ -34,6 +37,7 @@ const Signup = (): JSX.Element => {
             </Paper>
 
         </Grid>
+        </>
     )
 }
 
