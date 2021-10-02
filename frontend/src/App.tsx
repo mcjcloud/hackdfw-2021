@@ -1,11 +1,11 @@
-import React from "react"
-import { Provider } from "react-redux"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { makeStyles } from "@material-ui/core"
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
 
-import Navbar from "./components/Navbar"
-import routes from "./routes"
-import store from "./store"
+import Navbar from "./components/Navbar";
+import routes from "./routes";
+import store from "./store";
 
 // Styles
 const useStyles = makeStyles({
@@ -14,12 +14,12 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
   }
-})
+});
 
 // App component
 // this component renders the entire app inside the Provider and Router
 const App = (): JSX.Element => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Provider store={store}>
       <Router>
@@ -33,6 +33,6 @@ const App = (): JSX.Element => {
         </div>
       </Router>
     </Provider>
-  )
-}
-export default App
+  );
+};
+export default App;
