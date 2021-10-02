@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     flex: 1,
     display: "flex",
     flexDirection: "column",
-  },
+  }
 });
 
 // App component
@@ -28,9 +28,7 @@ const App = (): JSX.Element => {
           <Navbar />
           {/* switch -- this finds the first route that matches the current url and renders its component (see routes.ts) */}
           <Switch>
-            {routes.map((props, i) => (
-              <Route key={`route_${i}`} {...props} />
-            ))}
+            {routes.map((props, i) => <Route key={`route_${i}`} {...props} />)}
           </Switch>
         </div>
       </Router>

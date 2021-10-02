@@ -1,7 +1,7 @@
-import React, { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
-import { Button, IconButton, makeStyles, Typography } from "@material-ui/core"
-import CheckIcon from "@material-ui/icons/Check"
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Button, IconButton, makeStyles, Typography } from "@material-ui/core";
+import CheckIcon from "@material-ui/icons/Check";
 import blogger from "../assets/blogger.png";
 
 // Styles

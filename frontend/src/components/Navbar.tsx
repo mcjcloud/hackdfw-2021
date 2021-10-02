@@ -1,5 +1,5 @@
-import React from "react"
-import { useHistory } from "react-router-dom"
+import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   AppBar,
   Button,
@@ -7,8 +7,8 @@ import {
   makeStyles,
   Toolbar,
   Typography,
-} from "@material-ui/core"
-import MenuIcon from "@material-ui/icons/Menu"
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles({
   toolbar: {
@@ -39,6 +39,7 @@ const Navbar = (): JSX.Element => {
           </Typography>
         </div>
         <div className={classes.toolbarSection}>
+          <Button onClick={() => history.push("/signup")} color="inherit">CREATE ACCOUNT</Button>
           <Button onClick={() => history.push("/todo")} color="inherit">View To-Do's</Button>
           <Button onClick={() => history.push("/profile")} color="inherit">My Profile</Button>
         </div>
