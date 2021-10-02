@@ -40,6 +40,7 @@ const Navbar = (): JSX.Element => {
         </div>
         <div className={classes.toolbarSection}>
           <Button onClick={() => history.push("/todo")} color="inherit">View To-Do's</Button>
+          <Button onClick={() => history.push("/profile")} color="inherit">My Profile</Button>
         </div>
       </Toolbar>
     </AppBar>

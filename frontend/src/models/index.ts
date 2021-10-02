@@ -55,3 +55,78 @@ export interface Notification {
   type: string;
   guid: string;
 }
+
+export interface Profile {
+  type: string;
+  member: string;
+  about: string;
+}
+export interface About {
+  bio: string;
+  outlook: string;
+  identifier: string[];
+  pets: string[];
+  kids: string[];
+  goal: string[];
+  languages: string;
+  local: string;
+  location: string;
+}
+
+export interface Goal {
+  lookingFor: string[];
+}
+
+export interface Identifier {
+  gender: string;
+  orientation: string;
+  personalityType: string;
+}
+
+export interface Pet {
+  type: string;
+  breed: string;
+  age: string;
+  about: string;
+}
+
+export interface Kid {
+  age: string;
+  gender: string;
+  about: string;
+}
+
+export interface Location {
+  country: string;
+  province: string;
+  state: string;
+  city: string;
+  guid: string;
+}
+
+export interface Language {
+  language: string;
+  guid: string;
+}
+
+export interface MinorProfile {
+  name: string;
+  age: string;
+  lookingFor: string;
+  diagnosis: string;
+  educationalInterests: string;
+  gradeLevel: string;
+  kidInterests: string;
+  guid: string;
+}
+
+export interface ProfessionalProfile {
+  name: string;
+  picture: string;
+  education: string;
+  occupation: string;
+  specialty: string[];
+  servicesOffered: string[];
+  guid: string;
+} 
+
