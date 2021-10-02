@@ -39,7 +39,7 @@ const Navbar = (): JSX.Element => {
           </Typography>
         </div>
         <div className={classes.toolbarSection}>
-          <Button onClick={() => history.push("/todo")} color="inherit">View To-Do's</Button>
+          <Button onClick={() => history.push("/signup")} color="inherit">CREATE ACCOUNT</Button>
         </div>
       </Toolbar>
     </AppBar>
