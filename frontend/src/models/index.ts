@@ -30,6 +30,7 @@ export interface Event {
   participants: string[];
   organizers: string[];
   guid: string;
+  location: string;
 }
 
 export interface Interest {
