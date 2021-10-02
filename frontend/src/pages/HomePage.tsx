@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import home from "../assets/home.svg";
-import GroupItem, { Group } from "../components/GroupItem";
+import GroupItem from "../components/GroupItem";
+import { Group } from "../models";
 
 // Styles
 const useStyles = makeStyles({
@@ -14,7 +15,7 @@ const useStyles = makeStyles({
   },
   groups: {
     width: "90%",
-    margin: '10px',
+    margin: "10px",
     alignItems: "center",
   },
 });
@@ -30,10 +31,8 @@ const HomePage = (): JSX.Element => {
       guid: "123",
       schedule: [
         {
-          duration: 60,
           date: new Date(2020, 1, 1),
           name: "Happy Meeting Workshop",
-          location: "Somewhere",
           details: "We will code",
           guid: "178",
           organizers: ["123"],
@@ -49,10 +48,8 @@ const HomePage = (): JSX.Element => {
       guid: "123",
       schedule: [
         {
-          duration: 60,
           date: new Date(2020, 1, 1),
           name: "Happy Meeting Workshop",
-          location: "Somewhere",
           details: "We will code",
           guid: "178",
           organizers: ["123"],
