@@ -37,6 +37,7 @@ const HomePage = (): JSX.Element => {
           guid: "178",
           organizers: ["123"],
           participants: ["456"],
+          location: "somewere"
         },
       ],
       channels: [],
@@ -54,8 +55,8 @@ const HomePage = (): JSX.Element => {
           guid: "178",
           organizers: ["123"],
           participants: ["456"],
+          location: "somewere"
         }, {
-          duration: 60,
           date: new Date(2020, 1, 1),
           name: "Happy Meeting Workshop",
           location: "Somewhere",
