@@ -4,6 +4,8 @@ import { Checkbox } from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 // import Picker from 'emoji-picker-react';
 import React, { useState } from "react";
+import ProgressBar from "../components/ProgressBar";
+
 
 const Interests = (): JSX.Element => {
     const paperStyle = { padding: '40px 40px', width: 350, margin: "30px auto" }
@@ -15,6 +17,9 @@ const Interests = (): JSX.Element => {
     //     setStatus(`${status} ${emojiObject}`);
     // };
     return (
+        <>
+        <ProgressBar stage="Sign Up"/>
+
         <Grid>
             <Paper elevation={20} style={paperStyle}>
                 <Grid container justify="center">
@@ -69,6 +74,7 @@ const Interests = (): JSX.Element => {
             </Paper>
 
         </Grid>
+        </>
     )
 }
 

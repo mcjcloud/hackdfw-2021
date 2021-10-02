@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, IconButton, makeStyles, Typography } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import blogger from "../assets/blogger.png";
+import ProgressBar from "../components/ProgressBar";
 
 // Styles
 const useStyles = makeStyles({
@@ -19,11 +20,13 @@ const useStyles = makeStyles({
   const ProfilePage = (): JSX.Element => {
     const classes = useStyles()
     return (
+      <>
+      <ProgressBar stage="Sign Up"/>
       <div className={classes.root}>
         <Typography variant="h1" component="h1">Melonie Matters</Typography>
         <img src={blogger}/>
       </div>
-      
+      </>
     )
   }
   export default ProfilePage
