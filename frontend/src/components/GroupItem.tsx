@@ -33,10 +33,16 @@ const useStyles = makeStyles({
     display: "flex",
   },
   groupDescription: {
-      display: "flex",
+    display: "flex",
   },
   groupMemberCount: {
     display: "flex",
+  },
+  scheduleWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    width: "30%",
+    textAlign: "right",
   },
 });
 
@@ -175,15 +181,22 @@ const GroupItem = (props: Props): JSX.Element => {
             );
           })}
         </List>
-        <List>
-          {group.schedule.map((event) => {
-            return (
-              <ListItem key={event.guid}>
-                <ListItemText primary={event.name} />
-              </ListItem>
-            );
-          })}
-        </List>
+        <div className={classes.scheduleWrapper}>
+          <List>
+            {group.schedule.map((event) => {
+              return (
+                <ListItem key={event.guid}>
+                  <ListItemText
+                    primary={event.name}
+                    secondary={event.location}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
+          <Typography variant="h5">{members.length} members</Typography>
+          {/* DO members in common <Typography variant="h6">{members.length} connections in common</Typography> */}
+        </div>
       </>
     </div>
   );
