@@ -37,7 +37,7 @@ const HomePage = (): JSX.Element => {
           guid: "178",
           organizers: ["123"],
           participants: ["456"],
-          location: "somewere"
+          location: "somewere",
         },
       ],
       channels: [],
@@ -55,16 +55,17 @@ const HomePage = (): JSX.Element => {
           date: new Date(2020, 1, 1),
           name: "Happy Meeting Workshop",
           details: "We will code",
-          guid: "178",
+          guid: "179",
           organizers: ["123"],
           participants: ["456"],
-          location: "somewere"
-        }, {
+          location: "somewere",
+        },
+        {
           date: new Date(2020, 1, 1),
           name: "Happy Meeting Workshop",
           location: "Somewhere",
           details: "We will code",
-          guid: "178",
+          guid: "180",
           organizers: ["123"],
           participants: ["456"],
         },
@@ -74,14 +75,8 @@ const HomePage = (): JSX.Element => {
   ];
   return (
     <React.Fragment>
-      <div className={classes.root}>
-        <Typography variant="h1" component="h1">
-          Welcome Home
-        </Typography>
-        <img src={home} />
-      </div>
-      {groups.map((group) => (
-        <div className={classes.groups}>
+      {groups.map((group, i) => (
+        <div key={`group_${i}`} className={classes.groups}>
           <GroupItem group={group} />
         </div>
       ))}

@@ -1,182 +1,117 @@
-import { TodoItem } from "../models/todo"
-import { State as RootState } from "./index"
-import { Dispatch } from "redux"
+import { Dispatch } from "redux";
+import { State as RootState } from ".";
+import { Group } from "../models";
 
-const API_ENDPOINT = "http://localhost:8080"
+const API_ENDPOINT = "http://localhost:8080";
 
-// State type
-// this interface represents the schema for the Todo state
-export interface TodoState {
-  fetchError?: any
-  createError?: any
-  completeError?: any
-  uncompleteError?: any
-  isFetchingTodos: boolean
-  isCreatingTodo: boolean
-  isCompletingTodo: boolean
-  isUncompletingTodo: boolean
-  todos: TodoItem[]
+export interface GroupState {
+  groups: {
+    [groupId: string]: {
+      group?: Group;
+      fetching: boolean;
+      error: any;
+    };
+  };
 }
 
-// Action Types
-// these represent the redux actions that can be dispatched
-
-export interface TodoErrored {
-  type: "TODO_ERRORED",
+export interface GroupErrored {
+  type: "GROUP_ERRORED";
   payload: {
-    fetchError?: any
-    createError?: any
-    completeError?: any
-    uncompleteError?: any
-  }
+    groupId: string;
+    error: any;
+  };
 }
 
-export interface TodosFetchedStarted { type: "TODOS_FETCHED_STARTED" }
-export interface TodosFetched {
-  type: "TODOS_FETCHED"
+export interface GroupFetchedStarted {
+  type: "GROUP_FETCHED_STARTED";
   payload: {
-    todos: TodoItem[]
-  }
+    groupId: string;
+  };
 }
-
-export interface TodoCreatedStarted { type: "TODO_CREATED_STARTED" }
-export interface TodoCreated {
-  type: "TODO_CREATED"
+export interface GroupFetchedEnded {
+  type: "GROUP_FETCHED_ENDED";
   payload: {
-    todo: TodoItem
-  }
+    groupId: string;
+    group?: Group;
+    error?: any;
+  };
 }
 
-export interface TodoCompletedStarted { type: "TODO_COMPLETED_STARTED" }
-export interface TodoCompleted {
-  type: "TODO_COMPLETED"
-  payload: {
-    todo: TodoItem
-  }
-}
+export type GroupAction =
+  | GroupErrored
+  | GroupFetchedStarted
+  | GroupFetchedEnded;
 
-// TodoAction type
-// this is a type which can refer to any of the action types defined above
-// this is useful for the reducer
-export type TodoAction =
-  | TodoErrored
-  | TodosFetched
-  | TodosFetchedStarted
-  | TodoCreated
-  | TodoCreatedStarted
-  | TodoCompleted
-  | TodoCompletedStarted
+const defaultState: GroupState = {
+  groups: {},
+};
 
-// Default state
-// when the app initializes, this will be the default redux state
-const defaultState: TodoState = {
-  isFetchingTodos: false,
-  isCreatingTodo: false,
-  isCompletingTodo: false,
-  isUncompletingTodo: false,
-  todos: [],
-}
-
-// Reducer
-const reducer = (state: TodoState = defaultState, action: TodoAction): TodoState => {
+const reducer = (
+  state: GroupState = defaultState,
+  action: GroupAction
+): GroupState => {
   switch (action.type) {
-    case "TODO_ERRORED": {
-      return { ...state, ...action.payload }
-    }
-    case "TODOS_FETCHED_STARTED": {
-      return { ...state, isFetchingTodos: true }
-    }
-    case "TODOS_FETCHED": {
+    case "GROUP_ERRORED": {
       return {
         ...state,
-        isFetchingTodos: false,
-        todos: action.payload.todos,
-      }
+        groups: {
+          ...state.groups,
+          [action.payload.groupId]: {
+            ...state.groups[action.payload.groupId],
+            fetching: false,
+            error: action.payload.error,
+          },
+        },
+      };
     }
-    case "TODO_CREATED_STARTED": {
-      return { ...state, isCreatingTodo: true }
-    }
-    case "TODO_CREATED": {
+    case "GROUP_FETCHED_STARTED": {
       return {
         ...state,
-        isCreatingTodo: false,
-        todos: [
-          ...state.todos,
-          action.payload.todo,
-        ]
-      }
+        groups: {
+          ...state.groups,
+          [action.payload.groupId]: {
+            ...state.groups[action.payload.groupId],
+            fetching: true,
+          },
+        },
+      };
     }
-    case "TODO_COMPLETED_STARTED": {
-      return { ...state, isCompletingTodo: true }
-    }
-    case "TODO_COMPLETED": {
+    case "GROUP_FETCHED_ENDED": {
       return {
         ...state,
-        isCompletingTodo: false,
-        todos: state.todos.reduce((todos, nextTodo) => {
-          if (nextTodo._id === action.payload.todo._id) {
-            return [...todos, action.payload.todo]
-          }
-          return [...todos, nextTodo]
-        }, [] as TodoItem[]),
-      }
+        groups: {
+          ...state.groups,
+          [action.payload.groupId]: {
+            ...state.groups[action.payload.groupId],
+            fetching: false,
+            group: action.payload.group,
+            error: action.payload.error,
+          },
+        },
+      };
     }
-    default: {
-      return state
-    }
+    default:
+      return state;
   }
-}
-export default reducer
+};
+export default reducer;
 
-// Actions
-// these are dispatchable functions which update the redux state
+export const fetchGroupById =
+  (groupId: string) => async (dispatch: Dispatch) => {
+    dispatch({ type: "GROUP_FETCHED_STARTED", payload: { groupId } });
+    // TODO maybe use API
+    const group: Group = {
+      guid: "456",
+      avatar: "",
+      groupName: "My group",
+      groupDescription: "A test group",
+      members: [],
+      schedule: [],
+      channels: [],
+    };
+  };
 
-export const fetchTodos = () => async (dispatch: Dispatch) => {
-  dispatch({ type: "TODOS_FETCHED_STARTED" })
-  const response = await fetch(`${API_ENDPOINT}/todo`).then(r => r.json())
-  if (!!response && !!response.todos) {
-    dispatch({ type: "TODOS_FETCHED", payload: { todos: response.todos } })
-  } else {
-    dispatch({ type: "TODO_ERRORED", payload: { fetchError: response?.error ?? "Error fetching Todo items" } })
-  }
-}
-
-export const createTodo = (todo: TodoItem) => async (dispatch: Dispatch) => {
-  dispatch({ type: "TODO_CREATED_STARTED" })
-  const response = await fetch(`${API_ENDPOINT}/todo`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ todo })
-  }).then(r => r.json())
-
-  if (!!response && !!response.todo) {
-    dispatch({ type: "TODO_CREATED", payload: { todo: response.todo } })
-  } else {
-    dispatch({ type: "TODO_ERRORED", payload: { createError: response?.error ?? "Error creating Todo item" } })
-  }
-}
-
-export const completeTodo = (guid: string) => async (dispatch: Dispatch) => {
-  dispatch({ type: "TODO_COMPLETED_STARTED" })
-  const response = await fetch(`${API_ENDPOINT}/todo/${guid}/complete`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }).then(r => r.json())
-
-  if (!!response && !!response?.todo) {
-    dispatch({ type: "TODO_COMPLETED", payload: { todo: response.todo } })
-  } else {
-    dispatch({ type: "TODO_ERRORED", payload: { completeError: response?.error ?? "Error completing Todo item" } })
-  }
-}
-
-// Selectors
-// these are functions to be used by useSelector in order to get data from redux
-
-export const selectTodos = (state: RootState): TodoItem[] => state.todo.todos ?? []
-export const selectCompleteTodos = (state: RootState): TodoItem[] => state.todo.todos.filter(item => item.complete) ?? []
-export const selectIncompleteTodos = (state: RootState): TodoItem[] => state.todo.todos.filter(item => !item.complete) ?? []
+export const selectGroup =
+  (groupId: string) =>
+  (state: RootState): Group | undefined =>
+    state.group.groups[groupId]?.group;

@@ -56,8 +56,7 @@ const useStyles = makeStyles({
     borderRadius: "45px",
     verticalAlign: "middle",
     display: "flex",
-
-}
+  },
 });
 
 const GetMemberById = (memberId: string): Member => {
@@ -80,7 +79,7 @@ const GetMemberById = (memberId: string): Member => {
       interests: ["Coding", "Reading"],
       picture: "",
       status: "Active",
-      groups: ["123", "456"],
+      groups: ["234", "567"],
     },
   ];
   return (
@@ -107,23 +106,14 @@ const GroupItem = (props: Props): JSX.Element => {
   return (
     <div className={classes.wrapper}>
       <>
-        <Avatar src={group.avatar} className={classes.groupAvatar}/>
+        <Avatar src={group.avatar} className={classes.groupAvatar} />
         <List className={classes.groupInfoWrapper}>
           <ListItemText
-            primary={
-              <React.Fragment>
-                <Typography variant="h4">{group.groupName}</Typography>
-              </React.Fragment>
-            }
+            primary={<Typography variant="h4">{group.groupName}</Typography>}
             secondary={
-              <React.Fragment>
-                <Typography
-                  className={classes.groupDescription}
-                  variant="body1"
-                >
-                  {group.groupDescription}
-                </Typography>
-              </React.Fragment>
+              <Typography className={classes.groupDescription} variant="body1">
+                {group.groupDescription}
+              </Typography>
             }
           />
         </List>
