@@ -24,8 +24,8 @@ const Interests = (): JSX.Element => {
             <Paper elevation={20} style={paperStyle}>
                 <Grid container justify="center">
                     <Grid item>
-                        <h2 style={headerStyle}> More Details</h2>
-                        <Typography variant='caption'>Please fill more details ! </Typography>
+                        <h2 style={headerStyle}> Edit Your Profile</h2>
+                        <Typography variant='caption'>Tell us more about you ! </Typography>
 
                     </Grid>
                 </Grid>
