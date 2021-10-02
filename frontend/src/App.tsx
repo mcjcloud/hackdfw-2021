@@ -1,11 +1,11 @@
-import React from "react"
-import { Provider } from "react-redux"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import { makeStyles } from "@material-ui/core"
+import React from "react";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
 
-import Navbar from "./components/Navbar"
-import routes from "./routes"
-import store from "./store"
+import Navbar from "./components/Navbar";
+import routes from "./routes";
+import store from "./store";
 
 // Styles
 const useStyles = makeStyles({
@@ -13,13 +13,13 @@ const useStyles = makeStyles({
     flex: 1,
     display: "flex",
     flexDirection: "column",
-  }
-})
+  },
+});
 
 // App component
 // this component renders the entire app inside the Provider and Router
 const App = (): JSX.Element => {
-  const classes = useStyles()
+  const classes = useStyles();
   return (
     <Provider store={store}>
       <Router>
@@ -28,11 +28,13 @@ const App = (): JSX.Element => {
           <Navbar />
           {/* switch -- this finds the first route that matches the current url and renders its component (see routes.ts) */}
           <Switch>
-            {routes.map((props, i) => <Route key={`route_${i}`} {...props} />)}
+            {routes.map((props, i) => (
+              <Route key={`route_${i}`} {...props} />
+            ))}
           </Switch>
         </div>
       </Router>
     </Provider>
-  )
-}
-export default App
+  );
+};
+export default App;
