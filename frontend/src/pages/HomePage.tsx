@@ -40,6 +40,7 @@ const HomePage = (): JSX.Element => {
           location: "somewere",
         },
       ],
+      posts: [],
       channels: [],
       avatar: "/src/assets/home.svg",
     },
@@ -48,7 +49,7 @@ const HomePage = (): JSX.Element => {
       groupDescription: "Come hang out with us, we are a bit around",
       members: ["123", "456"],
       avatar: "/src/assets/home.svg",
-
+      posts: [],
       guid: "123",
       schedule: [
         {
