@@ -1,0 +1,58 @@
+.wizard-container {
+    position: relative;
+
+    .wizard-hr {
+        position: absolute;
+        border-bottom: 4px solid #43df9ead;
+        top: 57px;
+        width: 100%;
+    }
+
+    .wizard-steps-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 100px;
+        height: 100px;
+        vertical-align: middle;
+        align-items: center;
+
+        .step {
+            position: relative;
+            text-align: center;
+            font-size: small;
+            color: #877979;
+
+            &.completed .dot {
+                background-color: #43df9e;
+
+                &::before {
+                    content: '\2713';
+                    display: inline-block;
+                    color: white;
+                    font-weight: 900;
+                    font-size: 35px;
+                }
+            }
+
+            &.in-progress .dot {
+                &::before {
+                    content: '✎';
+                    display: inline-block;
+                    color: #43df9e;
+                    font-weight: 900;
+                    font-size: 35px;
+                }
+            }
+
+            .dot {
+                margin-top: 5px;
+                height: 50px;
+                width: 50px;
+                border: 4px solid #43df9e;
+                background-color: white;
+                border-radius: 50%;
+                display: inline-block;
+            }
+        }
+    }
+}
