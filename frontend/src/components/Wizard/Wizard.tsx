@@ -42,23 +42,23 @@ const Wizard = (props: Props): JSX.Element => {
       <div className="wizard-hr"></div>
       <div className="wizard-steps-container">
         <span className={`step ${getCSSClass(WizardStep.SIGN_UP)}`}>
-          <div>1) Sign Up</div>
+          <div><strong>1)</strong> Sign Up</div>
           <Link to="/signup"><span className="dot"></span></Link>
         </span>
         <span className={`step ${getCSSClass(WizardStep.YOUR_PROFILE)}`}>
-          <div>2) Your Profile</div>
+          <div><strong>2)</strong> Your Profile</div>
           <Link to="/profile"><span className="dot"></span></Link>
         </span>
         <span className={`step ${getCSSClass(WizardStep.MATCHES)}`}>
-          <div>3) Matches</div>
+          <div><strong>3)</strong> Matches</div>
           <Link to="/matches"><span className="dot"></span></Link>
         </span>
         <span className={`step ${getCSSClass(WizardStep.JOIN)}`}>
-          <div>4) Join</div>
+          <div><strong>4)</strong> Join</div>
           <Link to="/join"><span className="dot"></span></Link>
         </span>
         <span className={`step ${getCSSClass(WizardStep.ENGAGE)}`}>
-          <div>5) Engage</div>
+          <div><strong>5)</strong> Engage</div>
           <Link to="/engage"><span className="dot"></span></Link>
         </span>
       </div>

@@ -13,7 +13,7 @@ body {
     .MuiInput-underline:after {
         border-bottom: 2px solid #43df9e;
     }
-    .MuiCheckbox-colorPrimary.Mui-checked {
+    .MuiCheckbox-colorPrimary.Mui-checked, .MuiRadio-colorSecondary.Mui-checked {
         color: #43df9e;
     }
 
@@ -44,4 +44,8 @@ l {
 
 a.melon-link {
     color: #43df9e;
+}
+
+li.li-no-style {
+    list-style: none;
 }
