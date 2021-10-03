@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { useHistory } from "react-router-dom";
 import {
   AppBar,
@@ -16,6 +16,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Group, Member } from "../models";
+import Drawer from "../containers/Drawer";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -103,8 +104,13 @@ const GroupItem = (props: Props): JSX.Element => {
   const classes = useStyles();
   const group = props.group;
   const members = group.members.map((member: string) => GetMemberById(member));
+  // const classes = useStyles();
+  // const router = useRouter();
+  const [open, setOpen] = React.useState<boolean>(false);
+  
   return (
     <div className={classes.wrapper}>
+      <Drawer open = {open} onChange = {setOpen}/>
       <>
         <Avatar src={group.avatar} className={classes.groupAvatar} />
         <List className={classes.groupInfoWrapper}>
@@ -133,7 +139,7 @@ const GroupItem = (props: Props): JSX.Element => {
             })}
           </List>
           <div className={classes.buttonGroup}>
-            <Button variant="contained">Preview</Button>
+            <Button onClick={() => setOpen(true)} variant="contained">Preview</Button>
             <Button variant="contained" color="primary">
               Join
             </Button>
