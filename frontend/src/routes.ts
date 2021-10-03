@@ -1,7 +1,7 @@
 import { RouteProps } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import Signup from "./pages/SignupPage";
+import Signup from "./pages/SignupPage/SignupPage";
 import Interests from "./pages/InterestsPage";
 import ProfilePage from "./pages/ProfilePage";
 

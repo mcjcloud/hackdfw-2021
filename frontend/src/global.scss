@@ -1,0 +1,31 @@
+body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
+    .MuiButton-containedPrimary {
+        background-color: #43df9e;
+    }
+
+    .logo-text {
+        font-family: "Colombo";
+        font-size: 45px;
+    }
+}
+
+/* utility classes */
+.div-inline-center {
+    display: inline-block;
+    margin: 0 auto;
+}
+.text-center {
+    text-align: center;
+}
+l {
+    font-size: larger;
+}
+
+@font-face {
+    font-family: "Colombo";
+    src: url("./assets/fonts/Colombo/ColomboSansFont.eot");
+    src: url("./assets/fonts/Colombo/ColomboSansFont.woff") format("woff"),
+    url("./assets/fonts/Colombo/ColomboSansFont.otf") format("opentype");
+}
