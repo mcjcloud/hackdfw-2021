@@ -3,22 +3,12 @@
   min-height: 100%;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
+  margin-left: 10px;
 }
 
-.Schedule-sidebar {
-  width: 300px;
-  line-height: 1.5;
-  background: #eaf9ff;
-  border-right: 1px solid #d3e2e8;
-}
-
-.Schedule-sidebar-section {
-  padding: 2em;
-}
-
-.Schedule-main {
-  flex-grow: 1;
-  padding: 3em;
+.demo-app-sidebar-section {
+  padding: 10px;
+  margin-left: 50px;
 }
 
 .fc { /* the calendar root */
