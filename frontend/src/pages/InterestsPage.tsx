@@ -18,7 +18,7 @@ const Interests = (): JSX.Element => {
     // };
     return (
         <>
-        <ProgressBar stage="Sign Up"/>
+        <ProgressBar stage="Your Profile"/>
 
         <Grid>
             <Paper elevation={20} style={paperStyle}>

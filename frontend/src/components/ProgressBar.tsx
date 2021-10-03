@@ -30,6 +30,8 @@ const useStyles = makeStyles({
   avatar: {
     width: "120px",
     height: "120px",
+    backgroundColor: "gray"
+
   },
   arrow: {
     // margin: 0,
@@ -70,8 +72,8 @@ const ProgressBar = (props: Props): JSX.Element => {
           <Avatar
             style={{
               backgroundColor: location.pathname.includes("signup")
-                ? "blue"
-                : "black",
+                ? "orange"
+                : "gray",
             }}
             className={classes.avatar}
           >
@@ -85,8 +87,8 @@ const ProgressBar = (props: Props): JSX.Element => {
           <Avatar
             style={{
               backgroundColor: location.pathname.includes("details")
-                ? "blue"
-                : "black",
+                ? "orange"
+                : "gray",
             }}
             className={classes.avatar}
           >
@@ -99,13 +101,13 @@ const ProgressBar = (props: Props): JSX.Element => {
         <div className={classes.stepWrapper}>
           <Avatar
             style={{
-              backgroundColor: location.pathname.includes("signup")
-                ? "blue"
-                : "black",
+              backgroundColor: location.pathname.includes("details")
+                ? "orange"
+                : "gray",
             }}
             className={classes.avatar}
           >
-            Sign Up
+            Match
           </Avatar>
           <div className={classes.arrowIconWrapper}>
             <ArrowRightAltIcon className={classes.arrow} />
@@ -114,13 +116,13 @@ const ProgressBar = (props: Props): JSX.Element => {
         <div className={classes.stepWrapper}>
           <Avatar
             style={{
-              backgroundColor: location.pathname.includes("signup")
-                ? "blue"
-                : "black",
+              backgroundColor: location.pathname.includes("details")
+                ? "orange"
+                : "gray",
             }}
             className={classes.avatar}
           >
-            Sign Up
+            Join
           </Avatar>
           <div className={classes.arrowIconWrapper}>
             <ArrowRightAltIcon className={classes.arrow} />
@@ -129,13 +131,13 @@ const ProgressBar = (props: Props): JSX.Element => {
         <div className={classes.stepWrapper}>
           <Avatar
             style={{
-              backgroundColor: location.pathname.includes("signup")
-                ? "blue"
-                : "black",
+              backgroundColor: location.pathname.includes("details")
+                ? "orange"
+                : "gray",
             }}
             className={classes.avatar}
           >
-            Sign Up
+            Engage
           </Avatar>
         </div>
       </Grid>
