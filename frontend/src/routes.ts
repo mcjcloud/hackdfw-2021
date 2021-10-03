@@ -2,7 +2,7 @@ import { RouteProps } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import Signup from "./pages/SignupPage/SignupPage";
-import Profile from "./pages/ProfilePage/ProfilePage";
+import Profile from "./pages/ProfilePage";
 import GroupPage from "./pages/GroupPage";
 
 const routes: RouteProps[] = [
