@@ -5,7 +5,7 @@ import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOut
 import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined';
 import { Checkbox } from "@material-ui/core";
 import { Link } from 'react-router-dom';
-import ProgressBar from "../../components/ProgressBar";
+import Wizard from "../../components/Wizard/Wizard";
 import Box from '@material-ui/core/Box';
 import "./SignupPage.scss"
 import logoTiny from "../../assets/mm-logo-tiny.png";
@@ -31,7 +31,7 @@ const Signup = (): JSX.Element => {
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     return (
         <>
-        <ProgressBar stage="Sign Up"/>
+        <Wizard stage="Sign Up"/>
         <Grid className="text-center">
 
             <div className="div-inline-center intro-text-container">
@@ -75,11 +75,11 @@ const Signup = (): JSX.Element => {
                         <TextField fullWidth label='Email' placeholder='abc@example.com' />
                     </Box>
                     <Box mt={1}>
-                        <TextField fullWidth label='Userame' />
+                        <TextField fullWidth label='Password' type="password" />
                     </Box>
                     
                     <Box mt={1}>
-                        <Button component={Link} to='/details' variant='contained' color='primary'>Save</Button>
+                        <Button component={Link} to='/details' variant='contained' color='primary'>Join</Button>
                     </Box>
                 </form>
 

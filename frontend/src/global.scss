@@ -4,6 +4,15 @@ body {
     .MuiButton-containedPrimary {
         background-color: #43df9e;
     }
+    .MuiFormLabel-root.Mui-focused {
+        color: #43df9e;
+    }
+    .MuiButton-containedPrimary:hover {
+        background-color: #5ae8c0;
+    }
+    .MuiInput-underline:after {
+        border-bottom: 2px solid #43df9e;
+    }
 
     .logo-text {
         font-family: "Colombo";
