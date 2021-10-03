@@ -11,3 +11,15 @@
     border: 1px solid #cccccc;
     border-radius: 5px;
 }
+
+.inline-text-fields > *, .inline-text-fields-49 {
+    width: 49%;
+}
+
+.diagnosis-radio-button {
+    width: 45%;
+    .MuiFormControlLabel-label {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}
