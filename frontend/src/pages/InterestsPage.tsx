@@ -4,7 +4,7 @@ import { Checkbox } from "@material-ui/core";
 import Radio from '@material-ui/core/Radio';
 // import Picker from 'emoji-picker-react';
 import React, { useState } from "react";
-import ProgressBar from "../components/ProgressBar";
+import Wizard from "../components/Wizard/Wizard";
 
 
 const Interests = (): JSX.Element => {

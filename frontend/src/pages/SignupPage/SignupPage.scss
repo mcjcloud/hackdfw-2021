@@ -1,0 +1,40 @@
+
+.intro-text-container {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+
+    .intro-text {
+        font-size: 27px;
+        color: #43df9e;
+    }
+
+    p {
+        font-weight: 800;
+    }
+}
+
+.choose-avatar {
+    > span {
+        border: 1px solid #e1e1e1;
+        border-radius: 10px;
+        display: inline-block;
+        overflow: hidden;
+
+        &:not(:last-child) {
+            margin-right: 2px;
+        }
+
+        &.selected {
+            border: 2px solid #43df9e !important;
+        }
+        &:hover {
+            border: 2px solid #b0ffde;
+            cursor: pointer;
+        }
+
+        > img {
+            display: block;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   AppBar,
   Button,
@@ -8,7 +8,8 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import "./Navbar.scss"
+import logoSmall from "../../assets/mm-logo-small.png";
 
 const useStyles = makeStyles({
   toolbar: {
@@ -28,20 +29,19 @@ const Navbar = (): JSX.Element => {
   const history = useHistory()
   const classes = useStyles()
   return (
-    <AppBar position="static">
+    <AppBar position="static" className="navbar-main-header">
       <Toolbar className={classes.toolbar}>
         <div className={classes.toolbarSection}>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6">
-            My Cool App
+          <Typography className="site-name" variant="h6">
+            <Link className="logo-text" to="/">
+              <l>M</l>ELON
+              <img src={logoSmall} />
+              <l>M</l>ENTOR
+            </Link>
           </Typography>
         </div>
         <div className={classes.toolbarSection}>
           <Button onClick={() => history.push("/signup")} color="inherit">CREATE ACCOUNT</Button>
-          <Button onClick={() => history.push("/todo")} color="inherit">View To-Do's</Button>
-          <Button onClick={() => history.push("/profile")} color="inherit">My Profile</Button>
         </div>
       </Toolbar>
     </AppBar>
