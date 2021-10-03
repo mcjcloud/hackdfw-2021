@@ -54,6 +54,10 @@
         box-shadow: 0px 0px 2px #e8e8e8;
         overflow: hidden;
 
+        &.chat {
+            padding: 30px;
+        }
+
         .avatar-section {
             width: 40%;
             display: inline-block;

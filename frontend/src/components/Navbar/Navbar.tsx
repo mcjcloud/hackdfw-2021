@@ -42,7 +42,6 @@ const Navbar = (): JSX.Element => {
         </div>
         <div className={classes.toolbarSection}>
           <Button onClick={() => history.push("/signup")} color="inherit">CREATE ACCOUNT</Button>
-          <Button onClick={() => history.push("/schedule")} color="inherit">SCHEDULE</Button>
 
         </div>
       </Toolbar>

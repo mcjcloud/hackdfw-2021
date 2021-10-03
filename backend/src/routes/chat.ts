@@ -13,6 +13,7 @@ chatRouter.get("/", async (_: Request, res: Response) => {
 })
 
 chatRouter.post("/", async (req: Request, res: Response) => {
+  console.debug("BODY", req.body);
   if (!req.body) {
     return res.status(400).json({ error: "Invalid request body" })
   }
