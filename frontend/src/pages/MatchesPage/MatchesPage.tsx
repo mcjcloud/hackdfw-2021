@@ -12,10 +12,14 @@ import avatar2 from "../../assets/avatars/avatar2.png";
 import avatar3 from "../../assets/avatars/avatar3.png";
 import avatar4 from "../../assets/avatars/avatar4.png";
 import avatar5 from "../../assets/avatars/avatar5.png";
+import { useHistory } from "react-router-dom";
 
 const Matches = (): JSX.Element => {
-    const paperStyle = { padding: '40px 40px', width: 350, margin: "30px auto" };
-    const marginTop = { marginTop: 5 };
+    const history = useHistory();
+
+    function join(): void {
+        history.push("/join");
+    }
 
     return (
         <>
@@ -35,7 +39,7 @@ const Matches = (): JSX.Element => {
                             <span className="top-row-right">
                                 <Button size="small" variant="outlined">Preview</Button>
                                 &nbsp;&nbsp;&nbsp;
-                                <Button size="small" variant="contained" color='primary'>Join</Button>
+                                <Button size="small" variant="contained" color='primary' onClick={join}>Join</Button>
                             </span>
                         </div>
                         <div>
