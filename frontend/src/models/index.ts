@@ -6,6 +6,7 @@ export interface Group {
   guid: string;
   schedule: Event[];
   channels: Channel[];
+  posts: Post[];
 }
 
 export interface Channel {
@@ -128,5 +129,4 @@ export interface ProfessionalProfile {
   specialty: string[];
   servicesOffered: string[];
   guid: string;
-} 
-
+}

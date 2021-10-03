@@ -108,6 +108,7 @@ export const fetchGroupById =
       members: [],
       schedule: [],
       channels: [],
+      posts: [],
     };
   };
 
