@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Props } from "react"
 // import { SignUpItem } from "../models/signup"
 import { Grid, Paper, Avatar, Typography, TextField, Button, FormControl, FormHelperText, FormGroup, FormControlLabel } from "@material-ui/core"
 import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
@@ -14,6 +14,15 @@ import avatar2 from "../../assets/avatars/avatar2.png";
 import avatar3 from "../../assets/avatars/avatar3.png";
 import avatar4 from "../../assets/avatars/avatar4.png";
 import avatar5 from "../../assets/avatars/avatar5.png";
+import { useHistory } from "react-router-dom";
+
+export interface Registration {
+    name: string,
+    email: string,
+    password: string,
+    terms: boolean,
+    avatar: number
+}
 
 function selectAvatar(e: React.MouseEvent<HTMLSpanElement>): void {
     const target = e.currentTarget;
@@ -26,9 +35,44 @@ function selectAvatar(e: React.MouseEvent<HTMLSpanElement>): void {
 }
 
 const Signup = (): JSX.Element => {
+    const history = useHistory();
     const paperStyle = { padding: '40px 40px', width: 350, margin: "30px auto" }
-    const headerStyle = { margin: "5" }
-    const avatarStyle = { backgroundColor: '#1bbd7e' }
+
+    function processForm(): void {
+        /* retrieve:
+        username,
+        email,
+        password,
+        avatar,
+        t&cs
+        */
+       
+        const nameEl = document.getElementById("name") as HTMLInputElement;
+        const emailEl = document.getElementById("email") as HTMLInputElement;
+        const passwordEl = document.getElementById("password") as HTMLInputElement;
+        const tAndCEl = document.getElementById("t-and-c") as HTMLInputElement;
+
+        const name = nameEl.value;
+        const email = emailEl.value;
+        const password = passwordEl.value;
+        const tAndC = tAndCEl.checked;
+
+        const avatarEls = document.querySelectorAll<HTMLSpanElement>("#choose-avatar > span");
+        const avatarIndex = Array.from(avatarEls).findIndex(s => s.classList.contains("selected"));
+
+        const registration = {
+            name: name,
+            email: email,
+            password: password,
+            terms: tAndC,
+            avatar: avatarIndex
+        }
+
+        console.debug("SUBMISSION", registration);
+
+        history.push("/profile", registration);
+    }
+
     return (
         <>
         <Wizard step={WizardStep.SIGN_UP} />
@@ -69,17 +113,23 @@ const Signup = (): JSX.Element => {
                 <form>
 
                     <Box mt={1}>
-                        <TextField fullWidth label='Name' placeholder='Enter your name' />
+                        <TextField id="name" fullWidth label='Name' placeholder='Enter your name' />
                     </Box>
                     <Box mt={1}>
-                        <TextField fullWidth label='Email' placeholder='abc@example.com' />
+                        <TextField id="email" fullWidth label='Email' placeholder='abc@example.com' />
                     </Box>
                     <Box mt={1}>
-                        <TextField fullWidth label='Password' type="password" />
+                        <TextField id="password" fullWidth label='Password' type="password" />
                     </Box>
+
+                    <Box mt={1}>
+                        <span>I accept the <Link className="melon-link" to="/legal/t-and-c">Terms &amp; Conditions</Link></span>
+                        <Checkbox id="t-and-c" defaultChecked color="primary" />
+                    </Box>
+
                     
                     <Box mt={1}>
-                        <Button component={Link} to='/profile' variant='contained' color='primary'>Join</Button>
+                        <Button onClick={processForm} variant='contained' color='primary'>Join</Button>
                     </Box>
                 </form>
 

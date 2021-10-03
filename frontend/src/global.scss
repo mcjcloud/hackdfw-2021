@@ -13,6 +13,9 @@ body {
     .MuiInput-underline:after {
         border-bottom: 2px solid #43df9e;
     }
+    .MuiCheckbox-colorPrimary.Mui-checked {
+        color: #43df9e;
+    }
 
     .logo-text {
         font-family: "Colombo";
@@ -37,4 +40,8 @@ l {
     src: url("./assets/fonts/Colombo/ColomboSansFont.eot");
     src: url("./assets/fonts/Colombo/ColomboSansFont.woff") format("woff"),
     url("./assets/fonts/Colombo/ColomboSansFont.otf") format("opentype");
+}
+
+a.melon-link {
+    color: #43df9e;
 }

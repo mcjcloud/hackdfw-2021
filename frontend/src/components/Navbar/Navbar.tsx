@@ -33,7 +33,7 @@ const Navbar = (): JSX.Element => {
       <Toolbar className={classes.toolbar}>
         <div className={classes.toolbarSection}>
           <Typography className="site-name" variant="h6">
-            <Link className="logo-text" to="/">
+            <Link className="logo-text" to="/signup">
               <l>M</l>ELON
               <img src={logoSmall} />
               <l>M</l>ENTOR
