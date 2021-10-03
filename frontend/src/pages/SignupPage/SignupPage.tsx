@@ -5,7 +5,7 @@ import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOut
 import AddAPhotoOutlinedIcon from '@material-ui/icons/AddAPhotoOutlined';
 import { Checkbox } from "@material-ui/core";
 import { Link } from 'react-router-dom';
-import Wizard from "../../components/Wizard/Wizard";
+import Wizard, { WizardStep } from "../../components/Wizard/Wizard";
 import Box from '@material-ui/core/Box';
 import "./SignupPage.scss"
 import logoTiny from "../../assets/mm-logo-tiny.png";
@@ -31,7 +31,7 @@ const Signup = (): JSX.Element => {
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     return (
         <>
-        <Wizard stage="Sign Up"/>
+        <Wizard step={WizardStep.SIGN_UP} />
         <Grid className="text-center">
 
             <div className="div-inline-center intro-text-container">
@@ -79,7 +79,7 @@ const Signup = (): JSX.Element => {
                     </Box>
                     
                     <Box mt={1}>
-                        <Button component={Link} to='/details' variant='contained' color='primary'>Join</Button>
+                        <Button component={Link} to='/profile' variant='contained' color='primary'>Join</Button>
                     </Box>
                 </form>
 
