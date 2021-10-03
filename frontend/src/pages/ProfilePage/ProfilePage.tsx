@@ -74,11 +74,12 @@ const Profile = (props: RouteComponentProps<{}, StaticContext, LocationState>): 
                     <Grid container justify="center">
                         <Grid item>
                             <div className="profile-header-section">
-                                <Typography variant='caption'>Welcome{props.location.state?.name ? ", " + props.location.state.name : ""}!</Typography>
+                                <Typography variant='caption' align="center">Welcome{props.location.state?.name ? ", " + props.location.state.name : ""}!</Typography>
                                 <img className="avatar" src={avatars[props.location.state?.avatar ? props.location.state.avatar : 0]} />
                             </div>
 
-                            <Typography component="h6" variant="h4">Tell us about yourself</Typography>
+                            <Typography component="h6" align="center" variant="h5">We're so glad you're here</Typography>
+                            <Typography component="h6" align="center" variant="h5">Tell us more about yourself</Typography>
                         </Grid>
                     </Grid>
                     <form>
@@ -107,8 +108,8 @@ const Profile = (props: RouteComponentProps<{}, StaticContext, LocationState>): 
                                 value={state.selections} // From useState
                                 onChange={updateSelections} // From useState
                                 options={Categories}
-                                label="Category"
-                                labelPlural="Categories"
+                                label="Topics of Interest"
+                                labelPlural="Topics of Interest"
                                 multiple={true}
                             />
                         </Box>
